@@ -1,0 +1,15 @@
+[user]
+	name = Aleh Kot
+	email = kot.oleg@gmail.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = false
+	eol = LF
+	fileMode = false
+[diff]
+	renamelimit = 5000
