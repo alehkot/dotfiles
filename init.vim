@@ -4,7 +4,7 @@ call plug#begin()
   Plug 'tpope/vim-eunuch'
   Plug 'majutsushi/tagbar'
   Plug 'Quramy/tsuquyomi'
-  Plug 'kaicataldo/material.vim'
+  "Plug 'kaicataldo/material.vim'
   "Plug 'terryma/vim-multiple-cursors'
   Plug 'editorconfig/editorconfig-vim'
   "Plug 'skwp/greplace.vim'
@@ -19,10 +19,12 @@ call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
+  Plug 'aklt/plantuml-syntax'
   Plug 'jremmen/vim-ripgrep'
   "Plug 'Chun-Yang/vim-action-ag'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
+  "Plug 'scrooloose/vim-slumlord'
   Plug 'w0rp/ale'
   "Plug 'tenfyzhong/CompleteParameter.vim'
   Plug 'tell-k/vim-autopep8'
@@ -36,11 +38,24 @@ call plug#begin()
   Plug 'tpope/vim-vinegar'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'skwp/greplace.vim'
-  Plug 'vim-vdebug/vdebug'
+  "Plug 'vim-vdebug/vdebug'
   Plug 'mhartington/nvim-typescript'
   Plug 'mbbill/undotree'
   Plug 'thaerkh/vim-indentguides'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
   Plug 'neomake/neomake'
+  "Plug 'godlygeek/tabular'
+  "Plug 'plasticboy/vim-markdown'
+  "Plug 'plasticboy/vim-markdown'
+  "Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'mattn/webapi-vim'
+  Plug 'christoomey/vim-quicklink'
+  Plug 'junegunn/goyo.vim'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+  Plug 'morhetz/gruvbox'
+  Plug 'junegunn/limelight.vim'
+  Plug 'elzr/vim-json'
   " Plug 'Shougo/deoplete.nvim'
   " Plug 'roxma/nvim-yarp'
   " Plug 'roxma/vim-hug-neovim-rpc'
@@ -48,10 +63,19 @@ call plug#end()
 
 " set backspace=indent,eol,start
 
-let g:material_theme_style = 'default'
-let g:material_terminal_italics = 1
-let g:airline_theme = 'material'
+"let g:material_theme_style = 'default'
+"let g:material_terminal_italics = 1
+"let g:airline_theme = 'dracula'
 let g:python_highlight_all = 1
+
+" Markdown configuration.
+"augroup pandoc_syntax
+    "au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+"augroup END
+"let g:mkdp_auto_close = 0
+au BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 set encoding=utf-8
 
@@ -62,7 +86,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "set background=dark
-colorscheme material
+colorscheme gruvbox
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -342,4 +366,9 @@ autocmd FileChangedShellPost *
 "imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 
 autocmd VimEnter * nested :TagbarOpen
+
+" Ultisnips configuration.
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
