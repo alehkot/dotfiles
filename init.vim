@@ -41,7 +41,7 @@ call plug#begin()
   "Plug 'vim-vdebug/vdebug'
   Plug 'mhartington/nvim-typescript'
   Plug 'mbbill/undotree'
-  Plug 'thaerkh/vim-indentguides'
+  "Plug 'thaerkh/vim-indentguides'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'neomake/neomake'
@@ -372,3 +372,5 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Markdown show everything.
+set conceallevel=0
